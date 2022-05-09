@@ -7,9 +7,9 @@ public class MainClass {
     public static void main(String[] args) throws InterruptedException {
 
         createTable();
-//        personelInput();
-//        search();
-//        leaveRequest();
-//        leaveAccept();
+        personelInput();
+        search();
+        leaveRequest();
+        leaveAccept();
     }
 }

@@ -6,51 +6,55 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DataBase {
-    private final static String DB_driver="org.h2.Driver";
-    private final static String DB_url="jdbc:h2:~/test";
-    private final static String DB_userName="sa";
-    private final static String DB_pass="";
+    private final static String DB_driver = "org.h2.Driver";
+    private final static String DB_url = "jdbc:h2:~/test";
+    private final static String DB_userName = "sa";
+    private final static String DB_pass = "";
 
-    public static void createTable() throws RuntimeException{
-        Connection connection = null;
-        Statement statement = null;
+    public static void createTable() {
         try {
-            Class.forName(DB_driver);
+            Connection connection = null;
+            Statement statement = null;
+            try {
+                Class.forName(DB_driver);
 
-            System.out.println("Connecting to database ...");
-            connection= DriverManager.getConnection(DB_url,DB_userName,DB_pass);
-            Thread.sleep(500);
-            System.out.println("Creating table...");
-            Thread.sleep(500);
-            statement=connection.createStatement();
-            String sql ="CREATE TABLE   REGISTRATION " + "(id INTEGER not NULL, " + " first VARCHAR(255), " + " last VARCHAR(255), " + " age INTEGER, " + " PRIMARY KEY ( id ))";
-            statement.executeUpdate(sql);
-            System.out.println("Created");
+                System.out.println("Connecting to database ...");
+                connection = DriverManager.getConnection(DB_url, DB_userName, DB_pass);
+                Thread.sleep(500);
+                System.out.println("Creating table...");
+                Thread.sleep(500);
+                statement = connection.createStatement();
+                String sql = "CREATE TABLE   REGISTRATION " + "(id INTEGER not NULL, " + " first VARCHAR(255), " + " last VARCHAR(255), " + " age INTEGER, " + " PRIMARY KEY ( id ))";
+                statement.executeUpdate(sql);
+                System.out.println("Created");
 
-            statement.cancel();
-            connection.close();
+                statement.cancel();
+                connection.close();
 
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }finally {
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            } finally {
                 try {
-                    if (statement!=null) {
-                    statement.close();}
+                    if (statement != null) {
+                        statement.close();
+                    }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
-            }
+                }
                 try {
-                    if (connection!=null){
+                    if (connection != null) {
                         connection.close();
                     }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
+            }
+        }catch (Exception e){
+            System.out.println("your table already created");
         }
-        System.out.println("goodbye");
     }
 }
