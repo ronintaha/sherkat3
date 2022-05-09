@@ -1,15 +1,16 @@
-package edareh;
+package edareh.dao;
 
+import javax.management.loading.ClassLoaderRepository;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DataBase {
-    private final static String DB_driver = "org.h2.Driver";
-    private final static String DB_url = "jdbc:h2:~/test";
-    private final static String DB_userName = "sa";
-    private final static String DB_pass = "";
+     final static String DB_driver = "org.h2.Driver";
+     final static String DB_url = "jdbc:h2:~/test";
+     final static String DB_userName = "sa";
+     final static String DB_pass = "";
 
     public static void createTable() {
 
@@ -26,7 +27,7 @@ public class DataBase {
               try {
                   statement = connection.createStatement();
 
-                  String sql = "CREATE TABLE   REGISTRATION " + "(id INTEGER not NULL, " + " first VARCHAR(255), " + " last VARCHAR(255), " + " age INTEGER, " + " PRIMARY KEY ( id ))";
+                  String sql = "CREATE TABLE   REGISTRATION1 " + "(id INTEGER not NULL, " + " first1 VARCHAR(255), " + " last1 VARCHAR(255), " + " age INTEGER, " + " PRIMARY KEY ( id ))";
                   statement.executeUpdate(sql);
                   System.out.println("Created");
 
@@ -57,6 +58,26 @@ public class DataBase {
                     throw new RuntimeException(e);
                 }
             }
+
+    }
+//    public static void insertIntoTable(){
+//
+//        Connection connection = null;
+//        Statement statement = null;
+//        try {
+//            Class.forName(DB_driver);
+//            connection=DriverManager.getConnection(DB_url,DB_userName,DB_pass);
+//            statement=connection.createStatement();
+//            statement.executeUpdate("INSERT into REGISTRATION value ()");
+//
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+    public void createTable(){
 
     }
 }

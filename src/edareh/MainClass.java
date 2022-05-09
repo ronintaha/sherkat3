@@ -1,6 +1,6 @@
 package edareh;
 
-import static edareh.DataBase.createTable;
+import static edareh.dao.DataBase.createTable;
 import static edareh.MenusOption.*;
 
 public class MainClass {
@@ -8,8 +8,8 @@ public class MainClass {
 
         createTable();
         personelInput();
-        search();
-        leaveRequest();
-        leaveAccept();
+//        search();
+//        leaveRequest();
+//        leaveAccept();
     }
 }

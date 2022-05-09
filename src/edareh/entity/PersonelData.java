@@ -1,8 +1,11 @@
-package edareh;
+package edareh.entity;
+
+import edareh.core.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class PersonelData {
     private String name ;
     private String lasteName;
