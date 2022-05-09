@@ -64,4 +64,12 @@ public class PersonelData {
         }
 return null;
     }
+    public static PersonelData getPersonByLastname(String b){
+        for (int i =0;i<PersonelData.list.size();i++){
+            if (PersonelData.list.get(i).getLasteName().equals(b)){
+                return list.get(i);
+            }
+        }
+        return null;
+    }
 }
