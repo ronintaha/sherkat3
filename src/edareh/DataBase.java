@@ -12,7 +12,7 @@ public class DataBase {
     private final static String DB_pass = "";
 
     public static void createTable() {
-        try {
+
             Connection connection = null;
             Statement statement = null;
             try {
@@ -23,14 +23,18 @@ public class DataBase {
                 Thread.sleep(500);
                 System.out.println("Creating table...");
                 Thread.sleep(500);
-                statement = connection.createStatement();
-                String sql = "CREATE TABLE   REGISTRATION " + "(id INTEGER not NULL, " + " first VARCHAR(255), " + " last VARCHAR(255), " + " age INTEGER, " + " PRIMARY KEY ( id ))";
-                statement.executeUpdate(sql);
-                System.out.println("Created");
+              try {
+                  statement = connection.createStatement();
 
-                statement.cancel();
-                connection.close();
+                  String sql = "CREATE TABLE   REGISTRATION " + "(id INTEGER not NULL, " + " first VARCHAR(255), " + " last VARCHAR(255), " + " age INTEGER, " + " PRIMARY KEY ( id ))";
+                  statement.executeUpdate(sql);
+                  System.out.println("Created");
 
+                  statement.cancel();
+                  connection.close();
+              }catch (Exception e){
+                  System.out.println("table already exist");
+              }
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             } catch (SQLException e) {
@@ -53,8 +57,6 @@ public class DataBase {
                     throw new RuntimeException(e);
                 }
             }
-        }catch (Exception e){
-            System.out.println("your table already created");
-        }
+
     }
 }
