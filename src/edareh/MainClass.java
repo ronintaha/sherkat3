@@ -1,13 +1,19 @@
 package edareh;
 
-import static edareh.dao.DataBase.createTable;
-import static edareh.MenusOption.*;
+import static edareh.service.MenuBar.menu;
+import static edareh.service.MenusOption.personelInput;
+import static edareh.dao.creats.CreatTable.createTable;
 
 public class MainClass {
     public static void main(String[] args) throws InterruptedException {
 
+
+
         createTable();
-        personelInput();
+        menu();
+
+
+//        personelInput();
 //        search();
 //        leaveRequest();
 //        leaveAccept();

@@ -1,18 +1,17 @@
 package edareh.entity;
 
-import edareh.core.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+
 public class PersonelData {
     private String name ;
     private String lasteName;
-    private int age;
-    private int id ;
+    private String age;
+    private String id ;
 
-    PersonelData(String name , String lasteName ,int age ,int id){
+    public PersonelData(){
         this.name=name;
         this.lasteName=lasteName;
         this.age=age;
@@ -21,6 +20,7 @@ public class PersonelData {
         list.add(this);
     }
     public static List<PersonelData> list = new ArrayList<>();
+
 
     public String getName() {
         return name;
@@ -38,28 +38,28 @@ public class PersonelData {
         this.lasteName = lasteName;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public static PersonelData getPersonByID(int a){
+    public static PersonelData getPersonByID(String a){
 
         for (int i=0;i<PersonelData.list.size();i++){
 
 
-            if (PersonelData.list.get(i).getId()==a){
+            if (PersonelData.list.get(i).getId().equals(a)){
                 return list.get(i);
             }
 

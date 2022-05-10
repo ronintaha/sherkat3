@@ -1,15 +1,15 @@
-package edareh;
+package edareh.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Leave {
+public class VacationData {
     private int dayOfLeave;
-    Leave(int dayOfLeave){
+    public VacationData(int dayOfLeave){
         this.dayOfLeave=dayOfLeave;
         leaveList1.add(this);
     }
-    public static List<Leave> leaveList1 = new ArrayList<>();
+    public static List<VacationData> leaveList1 = new ArrayList<>();
 
     public int getDayOfLeave() {
         return dayOfLeave;

@@ -9,30 +9,31 @@ public class PersonDao {
 
     public void createPerson(){
         DataBase db = new DataBase();
-        Connection connection = db.getConnection();
+//        Connection connection = db.getConnection();
 
 
     }
 
 
-    public List<PersonelData> searchData(){
-        db.
-    }
+//    public List<PersonelData> searchData(){
+
+//        db.
+//    }
 
 
-    public void editPersone(PersonelData personelData){
+//    public void editPersone(PersonelData personelData){
 
-    }
+//    }
 
-    public boolean canSave(){
+//    public boolean canSave(){
 
-    }
+//    }
 
-    public boolean canEdit(){
+//    public boolean canEdit(){
 
-    }
-
-    public boolean canDelete(){
-
-    }
+//    }
+//
+//    public boolean canDelete(){
+//
+//    }
 }

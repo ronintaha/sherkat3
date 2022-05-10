@@ -1,16 +1,16 @@
-package edareh;
+package edareh.service;
 
-import edareh.dao.DataBase;
+import edareh.entity.VacationData;
+import edareh.dao.creats.PersonnelCRUD;
 import edareh.entity.PersonelData;
 
-import java.sql.*;
 import java.util.Scanner;
 
 public class MenusOption {
     static String name1;
     static String lastname;
-    static int age;
-    static int id;
+    static String age;
+    static String id;
     static int num;
    public static void personelInput() throws InterruptedException {
 
@@ -22,69 +22,43 @@ public class MenusOption {
        System.out.println("your lastname?");
        lastname = scanner.next();
        System.out.println("your age?");
-       age = scanner.nextInt();
+       age = scanner.next();
        System.out.println("your ID?");
-       id = scanner.nextInt();
+       id = scanner.next();
        System.out.println("your information :");
 
-       PersonelData personelData = new PersonelData(name1, lastname, age, id);
+
+       PersonelData personelData = new PersonelData();
+       personelData.setName(name1);
+       personelData.setLasteName(lastname);
+       personelData.setAge(age);
+       personelData.setId(id);
        System.out.println(personelData.getName() + "\t" + personelData.getLasteName() + "\t" + personelData.getAge() + "\t" + personelData.getId());
 
+
+           PersonnelCRUD personnelCRUD = new PersonnelCRUD();
+           personnelCRUD.create(personelData);
+
+
+//       DataBase db = new DataBase();
+//       db.insertClient(personelData,personelData.getId());
+
+
        System.out.println("if you want to continue press '0' :");
+
        int cunt = scanner.nextInt();
        if (cunt == 0) {
            System.out.println("processing...");
-           Thread.sleep(1000);
+           Thread.sleep(500);
+           System.out.println("Saved!");
 
-       }
-       Connection connection = null;
-       Statement statement = null;
-       try {
-           Class.forName(DataBase.DB_driver);
-
-
-           connection = DriverManager.getConnection(DataBase.DB_url, DataBase.DB_userName, DataBase.DB_pass);
-           statement = connection.createStatement();
-
-           String sql = "insert into REGISTRATION1 "
-                   + " (ID,LAST1, FIRST1 , AGE)" + " values (?,?, ?, ?)";
-
-
-           PreparedStatement preparedStatement = connection.prepareStatement(sql);
-           preparedStatement.setString(1, String.valueOf(id));
-           preparedStatement.setString(2, lastname);
-           preparedStatement.setString(3, name1);
-           preparedStatement.setString(4, String.valueOf(age));
-           statement.executeUpdate(sql);
-           statement.cancel();
-           connection.close();
-
-       } catch (SQLException e) {
-           throw new RuntimeException(e);
-       } catch (ClassNotFoundException e) {
-           throw new RuntimeException(e);
-       }finally {
-           try {
-               if (statement != null) {
-                   statement.close();
-               }
-           } catch (SQLException e) {
-               throw new RuntimeException(e);
-           }
-           try {
-               if (connection != null) {
-                   connection.close();
-               }
-           } catch (SQLException e) {
-               throw new RuntimeException(e);
-           }
        }
    }
 
     public static void search(){
        Scanner scanner1 = new Scanner(System.in);
         System.out.println("please enter the ID of person you want :");
-        int id = scanner1.nextInt();
+        String id = scanner1.next();
         System.out.println(PersonelData.getPersonByID(id).getName()+" is here!");
     }
     public static void leaveRequest() throws InterruptedException {
@@ -94,7 +68,7 @@ public class MenusOption {
         System.out.println("welcome "+PersonelData.getPersonByLastname(name).getName());
         System.out.println("now please enter the day you want to leave :");
          num = scanner2.nextInt();
-        Leave leave = new Leave(num);
+        VacationData leave = new VacationData(num);
         System.out.println("you want to leave in "+leave.getDayOfLeave()+" om");
         System.out.println("if you want to save press '0'");
         int vrod = scanner2.nextInt();
@@ -116,8 +90,8 @@ public class MenusOption {
         System.out.println("enter '0' for check leave requests: ");
         int i0 = scanner3.nextInt();
         if (i0==0){
-            PersonelData personelData = new PersonelData(name1,lastname,age,id);
-            Leave leave = new Leave(num);
+            PersonelData personelData = new PersonelData();
+            VacationData leave = new VacationData(num);
 
             System.out.println(personelData.getName()+" wants to leave "+"in "+leave.getDayOfLeave()+" om");
         }
