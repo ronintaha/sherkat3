@@ -1,4 +1,4 @@
-package edareh.dao.creats;
+package edareh.dao;
 
 import edareh.dao.DBHandler;
 import edareh.entity.PersonelData;
@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class PersonnelCRUD {
+public class PersonelDao {
 
 //    private Connection connection;
 

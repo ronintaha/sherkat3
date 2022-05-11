@@ -1,14 +1,9 @@
 package edareh.dao;
 
-import edareh.entity.PersonelData;
-
-import java.sql.Connection;
-import java.util.List;
-
-public class PersonDao {
+public class PersonDao0 {
 
     public void createPerson(){
-        DataBase db = new DataBase();
+//        DataBase db = new DataBase();
 //        Connection connection = db.getConnection();
 
 
@@ -26,7 +21,7 @@ public class PersonDao {
 //    }
 
 //    public boolean canSave(){
-
+//b fx
 //    }
 
 //    public boolean canEdit(){

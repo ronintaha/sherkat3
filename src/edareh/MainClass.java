@@ -1,21 +1,25 @@
 package edareh;
 
-import static edareh.service.MenuBar.menu;
-import static edareh.service.MenusOption.personelInput;
-import static edareh.dao.creats.CreatTable.createTable;
+//import static edareh.service.Inputs.leaveRequestInput;
+import edareh.entity.PersonelData;
+
+import static edareh.service.menuOptions.PesonelInputs.personelInput;
+//import static edareh.service.MenusOption.personelInput;
+//import static edareh.dao.creats.CreatTable.createTable;
+import static edareh.service.menuOptions.Search.search;
+import static edareh.service.menuOptions.vacation.VacationRequest.leaveRequestInput;
 
 public class MainClass {
     public static void main(String[] args) throws InterruptedException {
+PersonelData personelData =new PersonelData();
 
 
-
-        createTable();
-        menu();
-
-
-//        personelInput();
-//        search();
-//        leaveRequest();
+//        createTableP();
+//        menu();
+//        System.out.println(personelData.getLasteName());
+        personelInput();
+        search();
+//        leaveRequestInput();
 //        leaveAccept();
     }
 }

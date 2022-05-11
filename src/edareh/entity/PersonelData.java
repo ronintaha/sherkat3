@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PersonelData {
     private String name ;
-    private String lasteName;
+    private  String lasteName;
     private String age;
     private String id ;
 
@@ -17,9 +17,12 @@ public class PersonelData {
         this.age=age;
         this.id=id;
 
-        list.add(this);
+//        list.add(this);
+        DataStore.dataList.add(this);
+
     }
-    public static List<PersonelData> list = new ArrayList<>();
+//    public static List<PersonelData> list = new ArrayList<>();
+
 
 
     public String getName() {
@@ -54,25 +57,25 @@ public class PersonelData {
         this.id = id;
     }
 
-    public static PersonelData getPersonByID(String a){
-
-        for (int i=0;i<PersonelData.list.size();i++){
-
-
-            if (PersonelData.list.get(i).getId().equals(a)){
-                return list.get(i);
-            }
-
-
-        }
-return null;
-    }
-    public static PersonelData getPersonByLastname(String b){
-        for (int i =0;i<PersonelData.list.size();i++){
-            if (PersonelData.list.get(i).getLasteName().equals(b)){
-                return list.get(i);
-            }
-        }
-        return null;
-    }
+//    public static PersonelData getPersonByID(String a){
+//
+//        for (int i=0;i<PersonelData.list.size();i++){
+//
+//
+//            if (PersonelData.list.get(i).getId().equals(a)){
+//                return list.get(i);
+//            }
+//
+//
+//        }
+//return null;
+//    }
+//    public static PersonelData getPersonByLastname(String b){
+//        for (int i =0;i<PersonelData.list.size();i++){
+//            if (PersonelData.list.get(i).getLasteName().equals(b)){
+//                return list.get(i);
+//            }
+//        }
+//        return null;
+//    }
 }

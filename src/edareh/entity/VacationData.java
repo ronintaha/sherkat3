@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VacationData {
-    private int dayOfLeave;
-    public VacationData(int dayOfLeave){
+    private static int dayOfLeave;
+    public VacationData(){
         this.dayOfLeave=dayOfLeave;
-        leaveList1.add(this);
+//        leaveList1.add(this);
+        DataStore.vacationDataList.add(this);
     }
-    public static List<VacationData> leaveList1 = new ArrayList<>();
+//    public static List<VacationData> leaveList1 = new ArrayList<>();
 
     public int getDayOfLeave() {
         return dayOfLeave;

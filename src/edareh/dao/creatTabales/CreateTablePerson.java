@@ -1,4 +1,4 @@
-package edareh.dao.creats;
+package edareh.dao.creatTabales;
 
 import edareh.dao.DBHandler;
 
@@ -6,9 +6,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class CreatTable {
+public class CreateTablePerson {
 
-    public static void createTable(){
+    public static void createTableP(){
         DBHandler dbHandler = new DBHandler();
         String cSQL = "CREATE TABLE IF NOT EXISTS PERSONEL1" + " (ID INTEGER PRIMARY KEY AUTO_INCREMENT, " + " FIRSTNAME VARCHAR(255)," + " LASTNAME VARCHAR(255)," + " AGE VARCHAR(255))";
         try (Connection connection = dbHandler.getConnection()){
