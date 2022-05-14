@@ -6,10 +6,10 @@ import java.util.List;
 
 
 public class PersonelData {
-    private String name ;
-    private  String lasteName;
-    private String age;
-    private String id ;
+    private static String name ;
+    private static String lasteName;
+    private static String age;
+    private static String id ;
 
     public PersonelData(){
         this.name=name;
@@ -78,4 +78,5 @@ public class PersonelData {
 //        }
 //        return null;
 //    }
+
 }

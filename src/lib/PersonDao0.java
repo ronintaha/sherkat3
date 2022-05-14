@@ -1,13 +1,13 @@
-package edareh.dao;
+//package edareh.dao;
 
-public class PersonDao0 {
+//public class PersonDao0 {
 
-    public void createPerson(){
+//    public void createPerson(){
 //        DataBase db = new DataBase();
 //        Connection connection = db.getConnection();
 
 
-    }
+//    }
 
 
 //    public List<PersonelData> searchData(){
@@ -31,4 +31,4 @@ public class PersonDao0 {
 //    public boolean canDelete(){
 //
 //    }
-}
+//}

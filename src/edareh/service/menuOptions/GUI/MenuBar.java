@@ -5,6 +5,7 @@ import edareh.entity.PersonelData;
 import java.util.Scanner;
 
 //import static edareh.service.Inputs.leaveRequestInput;
+import static edareh.dao.GetVacationDao.getVacationDao;
 import static edareh.service.menuOptions.PesonelInputs.personelInput;
 import static edareh.service.menuOptions.Search.search;
 import static edareh.service.menuOptions.vacation.VacationAccept.leaveAccept;
@@ -19,7 +20,8 @@ public class MenuBar {
         System.out.println("Press '1' for insert your information ");
         System.out.println("Press '2' for search your person ");
         System.out.println("press '3' for leave request ");
-        System.out.println("press '4' if you are manager \n");
+        System.out.println("press '4' if you are manager ");
+        System.out.println("press '5' for checking your vacation request \n");
         System.out.print("Please select : ");
         int number = scanner.nextInt();
 
@@ -28,8 +30,7 @@ public class MenuBar {
 
                 case 1 :
                     personelInput();
-                    PersonelData personelData =new PersonelData();
-                    System.out.println(personelData.getLasteName());
+
                     break;
                 case 2:
                     search();
@@ -39,6 +40,9 @@ public class MenuBar {
                     break;
                 case 4:
                     leaveAccept();
+                case 5:
+
+                    getVacationDao();
                 case 0:
                     break;
                 default:

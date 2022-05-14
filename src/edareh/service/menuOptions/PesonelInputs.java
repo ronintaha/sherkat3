@@ -33,12 +33,12 @@ public class PesonelInputs {
         System.out.println(personelData.getName() + "\t" + personelData.getLasteName() + "\t" + personelData.getAge() + "\t" + personelData.getId());
 
 
-//        try {
-//            PersonelDao personnelCRUD = new PersonelDao();
-//            personnelCRUD.create(personelData);
-//        }catch (Exception e){
-//            System.out.println("didnt saved at table");
-//        }
+        try {
+            PersonelDao personnelCRUD = new PersonelDao();
+            personnelCRUD.create(personelData);
+        }catch (Exception e){
+            System.out.println("didnt saved at table");
+        }
 
 //       DataBase db = new DataBase();
 //       db.insertClient(personelData,personelData.getId());

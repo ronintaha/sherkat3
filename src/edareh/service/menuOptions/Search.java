@@ -13,7 +13,7 @@ public class Search {
         Scanner scanner1 = new Scanner(System.in);
         System.out.println("please enter the ID of person you want :");
         String id = scanner1.next();
-        System.out.println(Search.getPersonByID(id).getName() + " is here!\n");
+        System.out.println(getPersonByID(id).getName()+" "+getPersonByID(id).getLasteName()+ " is here!\n");
     }
 
     public static PersonelData getPersonByID(String a){
