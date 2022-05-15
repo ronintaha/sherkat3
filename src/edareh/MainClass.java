@@ -13,16 +13,13 @@ import static edareh.service.menuOptions.Search.search;
 import static edareh.service.menuOptions.vacation.VacationRequest.leaveRequestInput;
 
 public class MainClass {
+
     public static void main(String[] args) throws InterruptedException {
-//PersonelData personelData =new PersonelData();
 
 
-//        getVacationDao();
-
-
-//        createTableP();
+        createTableP();
         menu();
-//        System.out.println(personelData.getLasteName());
+
 //        personelInput();
 //        search();
 //        leaveRequestInput();

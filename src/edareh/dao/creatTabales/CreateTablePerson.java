@@ -10,7 +10,7 @@ public class CreateTablePerson {
 
     public static void createTableP(){
         DBHandler dbHandler = new DBHandler();
-        String cSQL = "CREATE TABLE IF NOT EXISTS PERSONEL1" + " (ID INTEGER PRIMARY KEY AUTO_INCREMENT, " + " FIRSTNAME VARCHAR(255)," + " LASTNAME VARCHAR(255)," + " AGE VARCHAR(255))";
+        String cSQL = "CREATE TABLE IF NOT EXISTS PERSONEL1" + " (ID INTEGER PRIMARY KEY AUTO_INCREMENT, " + " FIRSTNAME VARCHAR(255)," + " LASTNAME VARCHAR(255)," + " AGE VARCHAR(255)," + " NATIONALCODE VARCHAR(255))";
         try (Connection connection = dbHandler.getConnection()){
             Statement statement = connection.createStatement();
             statement.executeUpdate(cSQL);

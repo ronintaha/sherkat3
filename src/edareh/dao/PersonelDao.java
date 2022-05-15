@@ -18,14 +18,16 @@ public class PersonelDao {
         String FirstName = personelData.getName();
         String LastName = personelData.getLasteName();
         String AGE= personelData.getAge();
+        String NCODE= personelData.getId();
 
-        String query = "INSERT INTO PERSONEL1 ( FIRSTNAME,LASTNAME,AGE) VALUES (?,?,?)";
+        String query = "INSERT INTO PERSONEL1 ( FIRSTNAME,LASTNAME,AGE,NATIONALCODE) VALUES (?,?,?,?)";
         DBHandler dbHandler = new DBHandler();
         try(Connection connection = dbHandler.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, FirstName);
             preparedStatement.setString(2, LastName);
             preparedStatement.setString(3, AGE);
+            preparedStatement.setString(4,NCODE);
              preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
