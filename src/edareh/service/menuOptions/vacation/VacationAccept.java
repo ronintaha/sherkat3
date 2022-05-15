@@ -27,6 +27,7 @@ public class VacationAccept {
         System.out.println("enter '0' for check leave requests: ");
         int ii = scanner3.nextInt();
         if (ii == 0) {
+
             PersonelData personelData = new PersonelData();
             VacationData leave = new VacationData();
 

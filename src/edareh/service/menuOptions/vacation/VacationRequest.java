@@ -7,6 +7,7 @@ import edareh.service.menuOptions.Search;
 
 import java.util.Scanner;
 
+import static edareh.dao.GetInformation1.getInformation1;
 import static edareh.dao.creatTabales.CreateTableVacation.creatTableVacation;
 import static edareh.service.menuOptions.GUI.MenuBar.menu;
 import static java.awt.SystemColor.menu;
@@ -15,10 +16,12 @@ public class VacationRequest {
     public static void leaveRequestInput() throws InterruptedException {
         creatTableVacation();
         Scanner scanner2 = new Scanner(System.in);
-        System.out.println("please enter your lastname to login :");
-        String name = scanner2.next();
-        System.out.println("welcome "+ Search.getPersonByLastname(name).getName());
-        System.out.println("now please enter the day you want to leave :");
+        PersonelData personelData = new PersonelData();
+        System.out.println("please enter your NationalCode to login : ");
+        String nCode = scanner2.next();
+        getInformation1(nCode);
+        System.out.println("welcome Mr "+ personelData.getLasteName());
+        System.out.println("now please enter the day of month you want to leave : ");
         int num = scanner2.nextInt();
         if (num>1&&num<31){
         VacationData leave = new VacationData();
@@ -32,7 +35,7 @@ public class VacationRequest {
         int vrod = scanner2.nextInt();
         if (vrod==0) {
             System.out.println("processing...");
-            Thread.sleep(1000);
+            Thread.sleep(500);
 
             VacationDao vacationDao = new VacationDao();
             vacationDao.insertVacation();

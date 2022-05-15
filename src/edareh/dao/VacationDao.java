@@ -17,13 +17,15 @@ public class VacationDao {
         String day = String.valueOf(vacationData.getDayOfLeave());
         String lastName = personelData.getLasteName();
         String confirm1 = managerData.getConfirm();
+        String nCode1 = personelData.getId();
 
-        String iSQL = "INSERT INTO VACATION(LastN,VacationDay,Confirm) VALUES (?,?,?)";
+        String iSQL = "INSERT INTO VACATION(LastN,VacationDay,Confirm,NationalCode) VALUES (?,?,?,?)";
         try(Connection connection = dbHandler.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(iSQL);
             preparedStatement.setString(1,lastName);
             preparedStatement.setString(2, day);
             preparedStatement.setString(3, confirm1);
+            preparedStatement.setString(4,nCode1);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
