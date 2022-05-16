@@ -3,14 +3,12 @@ package edareh.service.menuOptions.vacation;
 import edareh.dao.VacationDao;
 import edareh.entity.PersonelData;
 import edareh.entity.VacationData;
-import edareh.service.menuOptions.Search;
 
 import java.util.Scanner;
 
-import static edareh.dao.GetInformation1.getInformation1;
+import static edareh.dao.GetPersonelDao.getInformation;
 import static edareh.dao.creatTabales.CreateTableVacation.creatTableVacation;
 import static edareh.service.menuOptions.GUI.MenuBar.menu;
-import static java.awt.SystemColor.menu;
 
 public class VacationRequest {
     public static void leaveRequestInput() throws InterruptedException {
@@ -19,7 +17,7 @@ public class VacationRequest {
         PersonelData personelData = new PersonelData();
         System.out.println("please enter your NationalCode to login : ");
         String nCode = scanner2.next();
-        getInformation1(nCode);
+        getInformation(nCode);
         System.out.println("welcome Mr "+ personelData.getLasteName());
         System.out.println("now please enter the day of month you want to leave : ");
         int num = scanner2.nextInt();

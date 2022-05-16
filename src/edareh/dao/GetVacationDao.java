@@ -1,29 +1,36 @@
 package edareh.dao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import edareh.entity.VacationData;
+
+import java.sql.*;
 
 public class GetVacationDao {
-    public static void getVacationDao(){
+    public static VacationData getVacationDao(int nCode){
+        VacationData vacationData = new VacationData();
         DBHandler dbHandler = new DBHandler();
-        String gSQL = ("SELECT * FROM VACATION ORDER BY id DESC LIMIT 1;");
+        String gSQL = ("SELECT * FROM VACATION WHERE NATIONALCODE = ? ;");
         try(Connection connection = dbHandler.getConnection()) {
-            Statement statement = connection.createStatement();
-            statement.executeQuery(gSQL);
-            ResultSet resultSet=statement.getResultSet();
+            PreparedStatement preparedStatement = connection.prepareStatement(gSQL);
+            preparedStatement.setInt(1,nCode);
+            preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.getResultSet();
             if (resultSet.next()){
                 String first = resultSet.getString("LastN");
-                String second = resultSet.getString("VacationDay");
+                int second = resultSet.getInt("VacationDay");
                 String third = resultSet.getString("confirm");
-                System.out.println("Mr "+first+" your vacation in "+second+" om has "+third);
+                String furth = resultSet.getString("NationalCode");
+                vacationData.setDayOfLeave(second);
+                vacationData.setlName(first);
+                vacationData.setConfirm(third);
+                vacationData.setnCode(furth);
+
             }
 
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return vacationData;
 
     }
 }

@@ -8,6 +8,7 @@ import java.util.Scanner;
 import static edareh.dao.GetVacationDao.getVacationDao;
 import static edareh.service.menuOptions.PesonelInputs.personelInput;
 import static edareh.service.menuOptions.Search.search;
+import static edareh.service.menuOptions.vacation.CheckVacation.checkVacation;
 import static edareh.service.menuOptions.vacation.VacationAccept.leaveAccept;
 import static edareh.service.menuOptions.vacation.VacationRequest.leaveRequestInput;
 
@@ -42,7 +43,7 @@ public class MenuBar {
                     leaveAccept();
                 case 5:
 
-                    getVacationDao();
+                    checkVacation();
                 case 0:
                     break;
                 default:

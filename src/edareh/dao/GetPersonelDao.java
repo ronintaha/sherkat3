@@ -1,15 +1,17 @@
 package edareh.dao;
 
 import edareh.entity.PersonelData;
+import edareh.entity.VacationData;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GetInformation1 {
-    public static PersonelData getInformation1(String id) {
+public class GetPersonelDao {
+    public static PersonelData getInformation(String id) {
         PersonelData personelData = new PersonelData();
+        VacationData vacationData = new VacationData();
 
         DBHandler dbHandler = new DBHandler();
         String iiSQL = ("SELECT * FROM PERSONEL1 WHERE NATIONALCODE =? ;");
@@ -35,6 +37,8 @@ public class GetInformation1 {
                 personelData.setLasteName(lastName);
                 personelData.setAge(age);
                 personelData.setId(nCode1);
+                vacationData.setlName(lastName);
+                vacationData.setnCode(nCode1);
             }
 //            Statement statement = connection.createStatement();
 //            statement.executeQuery(iSQL);
