@@ -58,6 +58,7 @@ public class VacationAccept {
             vacationData.setConfirm(conn);
             System.out.println("saved");
             confirmData();
+
             try {
                 menu();
             } catch (InterruptedException e) {

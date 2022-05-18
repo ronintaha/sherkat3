@@ -1,21 +1,17 @@
 package edareh.entity;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class PersonelData {
     private static String name ;
     private static String lasteName;
     private static String age;
-    private static String id ;
+    private static String nationalCode;
 
     public PersonelData(){
         this.name=name;
         this.lasteName=lasteName;
         this.age=age;
-        this.id=id;
+        this.nationalCode = nationalCode;
 
 //        list.add(this);
         DataStore.dataList.add(this);
@@ -50,11 +46,11 @@ public class PersonelData {
     }
 
     public String getId() {
-        return id;
+        return nationalCode;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String nationalCode) {
+        this.nationalCode = nationalCode;
     }
 
 //    public static PersonelData getPersonByID(String a){
